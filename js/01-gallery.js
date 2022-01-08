@@ -2,7 +2,7 @@ import { galleryItems } from './gallery-items.js';
 
 // Change code below this line
 
-// console.log(galleryItems);
+console.log(galleryItems);
 
 const galleryCard = document.querySelector('.gallery');
 galleryCard.insertAdjacentHTML('beforeend', createGalleryItemsMarkup(galleryItems))
@@ -10,17 +10,17 @@ galleryCard.insertAdjacentHTML('beforeend', createGalleryItemsMarkup(galleryItem
 function createGalleryItemsMarkup(element) {
     return element.map(({ preview, original, description }) => {
         return `
-<div class="gallery__item">
-    <a class="gallery__link" href="${original}">
-    <img
+    <div class="gallery__item">
+        <a class="gallery__link" href="${original}">
+        <img
         class="gallery__image"
         src="${preview}"
         data-source="${original}"
         alt="${description}"
-    />
-    </a>
-</div>
-`;
+        />
+        </a>
+    </div>
+        `;
     }).join("");
 } 
 
@@ -35,13 +35,11 @@ function onGalleryItemsContainerClick(event) {
     }
     
     const urlImage = event.target.dataset.source;
-    // console.log("url:", urlImage);
 
-    const instance = basicLightbox.create(`
-    <img src="${urlImage}" width="800" height="600">
-    `);
+    const instance = basicLightbox.create(`<img src="${urlImage}" width="800" height="600">`);
     instance.show();
 };
+
 
 // document.addEventListener('keydown', function(event) {
 //     const escKey = event.escKey; // const {key} = event; in ES6+
