@@ -24,6 +24,8 @@ function createGalleryItemsMarkup(element) {
     }).join("");
 } 
 
+console.log(galleryCard);
+
 const galleryItemsContainer = document.querySelector(".gallery");
 galleryItemsContainer.addEventListener("click", onGalleryItemsContainerClick);
 
@@ -39,6 +41,9 @@ function onGalleryItemsContainerClick(event) {
     const instance = basicLightbox.create(`<img src="${urlImage}" width="800" height="600">`);
     instance.show();
 };
+
+
+
 
 
 // document.addEventListener('keydown', function(event) {

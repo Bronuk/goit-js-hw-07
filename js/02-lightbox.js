@@ -9,25 +9,18 @@ galleryCard.insertAdjacentHTML('beforeend', createGalleryItemsMarkup(galleryItem
 
 function createGalleryItemsMarkup(element) {
     return element.map(({ preview, original, description }) => {
-        return `
+        return `<li>
     <a class="gallery__item" href="${original}">
         <img class="gallery__image"
         src="${preview}"
         alt="${description}"
-    </a >
+    </a ></li>
         `;
     }).join("");
 } 
 
-const galleryItemsContainer = document.querySelector(".gallery");
-galleryItemsContainer.addEventListener("click", onGalleryItemsContainerClick);
-
-function onGalleryItemsContainerClick(event) { 
-    event.preventDefault();
-
-    if (event.target.getAttribute("class") !== "gallery__image") {
-        return;
-    }
+// const galleryItemsContainer = document.querySelector(".gallery");
 
     new SimpleLightbox('.gallery a', {captionDelay:250, captionsData: 'alt'});
-};
+
+    console.log(galleryCard);
